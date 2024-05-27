@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOCAL SITES</title>
+    <style>
+        @media (max-width: 600px) {
+
+            h1,
+            h2 {
+                font-size: 18px;
+            }
+
+            label,
+            select,
+            button,
+            #links a {
+                font-size: 14px;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background-color: #f0f0f0;
+            background-image: url('bgpic.png');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: #0000009a;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        section {
+            padding: 20px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.489);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 15px;
+            border: 1px solid orange;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        select:focus {
+            border-color: #4CAF50;
+        }
+
+        .slide-right {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .slide-right h2 {
+            font-size: 21px;
+            animation: 5s slide-right;
+        }
+
+        @keyframes slide-right {
+            from {
+                margin-left: -500px;
+            }
+
+            to {
+                margin-left: 0%;
+            }
+        }
+
+        button {
+            padding: 11px 30px;
+            font-size: 16px;
+            background-color: orange;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 20px;
+            margin-top: 18px;
+            transition: background-color 0.2s, transform 0.4s;
+        }
+
+        button:hover {
+            background-color: orange;
+            transform: scale(1.05);
+            box-shadow: 0 0 5px orange,
+                        0 0 25px orange,
+                        0 0 50px orange,
+                        0 0 100px orange;
+        
+        }
+
+        .iframe-container {
+            
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+         h2 {
+            font-size: 18px;
+            margin: 10px 0;
+            color: white;
+        }
+
+        .iframe-container iframe {
+            width: 600px;
+            height: 450px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: transform 0.3s;
+        }
+
+        .iframe-container iframe:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 5px green,
+                        0 0 25px green,
+                        0 0 50px green,
+                        0 0 100px green;
+        }
+
+        #links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #links p {
+            font-size: 15px;
+            color: #ffffff;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-100%);
+            }
+
+            to {
+                transform: translateX(50%);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 720px) {
+            body {
+            padding: 25px;
+        }
+            .iframe-container iframe{
+           height: 370px;
+           width: 520px;
+           margin-bottom: 3%;
+       }
+    }
+
+       @media (max-width: 600px) {
+        body {
+            padding-top: 5px;
+            padding: 14px;
+        }
+            .iframe-container iframe{
+           height: 290px;
+           width: 440px;
+           margin-bottom: 3%;
+       }
+    }
+
+    @media (max-width: 490px) {
+        body {
+            padding-top: 5px;
+            padding: 7px;
+        }
+            .iframe-container iframe{
+           height: 240px;
+           width: 370px;
+           margin-bottom: 3%;
+       }
+    }
+
+    @media (max-width: 410px) {
+            .iframe-container iframe{
+           height: 200px;
+           width: 330px;
+           margin-bottom: 3%;
+       }
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>FIND LOCAL MARKETS AND  WAREHOUSES</h1>
+    </header>
+    <div class="slide-right">
+        <center>
+            <h2>CHOOSE YOUR LOCATION BELOW</h2>
+        </center>
+    </div>
+
+    <section>
+        <form>
+            <label for="states"><h2>Select State:</h2></label>
+            <select id="states" name="states" onchange="DisplayData()">
+                <option value="None">Select State</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>
+                <option value="Andaman and Nicobar Islands">Andaman and Nicobar</option>
+                <option value="Chandigarh"> Chandigarh</option>
+                <option value="Dadra and Nagar Haveli and Daman and Diu"> Daman and Diu</option>
+                <option value="Delhi"> Delhi</option>
+                <option value="Lakshadweep"> Lakshadweep</option>
+                <option value="Puducherry"> Puducherry</option>
+
+            </select>
+            <br>
+            <!--button type="button" onclick="DisplayData()">Submit</button-->
+        </form>
+
+        <div id="links">
+            <p>Please select a state from the dropdown.</p>
+        </div>
+    </section>
+
+    <script>
+        const stateData = {
+            "Andhra Pradesh": [
+                { district: " Guntur", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d245001.88692505873!2d80.08021563580827!3d16.36609105991644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sGunter%20vegtables%20markets%20and%20Cold%20Storage!5e0!3m2!1sen!2sin!4v1715857345859!5m2!1sen!2sin" },
+                { district: " Vijayawada", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d980004.7472551944!2d79.58557347252847!3d16.36664856522533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sVijaywada%20vegtables%20markets%20and%20Cold%20Storage!5e0!3m2!1sen!2sin!4v1715857554277!5m2!1sen!2sin" },
+                { district: " Kurnool", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d490646.6770408224!2d77.8371466001519!3d16.10813363279516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKurnool%20Vegetable%20markets%20and%20Cold%20Storage!5e0!3m2!1sen!2sin!4v1715857646055!5m2!1sen!2sin" },
+                { district: " Rajahmundry", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d61050.45734245945!2d81.7402849466081!3d16.99158179623476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sRajahmundry%20Vegetable%20markets%20and%20Cold%20Storage!5e0!3m2!1sen!2sin!4v1715857697118!5m2!1sen!2sin" },
+                { district: " Tirupati ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1967432.1168234977!2d77.67614924411232!3d15.61082606233759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sTriupati%20Vegetable%20markets%20and%20Cold%20Storage!5e0!3m2!1sen!2sin!4v1715857746384!5m2!1sen!2sin" },
+                { district: " Anantapur", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d30877.00281677051!2d77.57338952705511!3d14.677190457832424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAnantapur%20Vegetable%20markets%20and%20Cold%20Storage!5e0!3m2!1sen!2sin!4v1715857789797!5m2!1sen!2sin" },
+                { district: " Visakhapatnam", url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.354082585146!2d83.30476937537252!3d17.727947792904697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a39433b991634db%3A0xc66b7a398b2ebc82!2sVegetable%20Market!5e0!3m2!1sen!2sin!4v1715857850743!5m2!1sen!2sin" },
+                { district: " Nellore", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15454.269139126882!2d79.9788781029504!3d14.45208330507837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sNellore%20Vegetable%20markets%20and%20Cold%20Storage!5e0!3m2!1sen!2sin!4v1715857912294!5m2!1sen!2sin" }
+            ],
+            "Arunachal Pradesh": [
+                { district: "Naharlagun", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7378781.767292793!2d89.36224455387985!3d26.547048640917474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sNaharlagun%20vegetable%20market%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1715867459667!5m2!1sen!2sin" },
+                { district: "Itanagar", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d453811.94953740586!2d93.38058305317377!3d27.300484018989067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sItanagar%20%20vegetable%20market%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1715867500524!5m2!1sen!2sin" },
+                { district: "Pasighat", url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3520.9784596783797!2d95.32904697561949!3d28.0556823100417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x373f970125476af3%3A0x4152d836c0b13f06!2sSUPER%20MART%20PASIGHAT!5e0!3m2!1sen!2sin!4v1715870427527!5m2!1sen!2sin" },
+                { district: "Aalo", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1623770.4321657543!2d92.25459535358648!3d26.852035101013847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAalo%20vegetables%20market%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1715870714166!5m2!1sen!2sin" },
+                { district: "Tezu", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14099.661743684059!2d96.14890210769161!3d27.935237574324148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1stezu%20%20vegetables%20market%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1715870759883!5m2!1sen!2sin" },
+                { district: "Khonsa", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14100.412061736533!2d96.12529028715822!3d27.929487!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sTezu%20markets%20and%20godowns!5e0!3m2!1sen!2sin!4v1715877749796!5m2!1sen!2sin" },
+                { district: "Ziro", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7075.070694872248!2d93.81525679159775!3d27.545891224281142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sziro%20vegetable%20markets!5e0!3m2!1sen!2sin!4v1716002249518!5m2!1sen!2sin" },
+                { district: "Bomdila", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3546.642344213442!2d92.41836477541835!3d27.261744335011933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBomdila%20Market%20and%20godowns!5e0!3m2!1sen!2sin!4v1716002449378!5m2!1sen!2sin " }
+            ],
+            "Assam": [
+                { district: "Guwahati ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d114662.59007467046!2d91.7014432541752!3d26.09219532394973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sguwahati%20cold%20storage%20agriculture%20markets!5e0!3m2!1sen!2sin!4v1716002623310!5m2!1sen!2sin " },
+                { district: "Nagaon ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d28601.385333168324!2d92.64609365857245!3d26.3532605298238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sNagaon%20godowns!5e0!3m2!1sen!2sin!4v1716002736491!5m2!1sen!2sin " },
+                { district: " Silchar", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d57934.8183176716!2d92.7233642382436!3d24.832199193186945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1ssilchar%20agriculture%20markets%20and%20markets!5e0!3m2!1sen!2sin!4v1716002805682!5m2!1sen!2sin" },
+                { district: "Dibrugarh ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14158.159568658852!2d94.90554965747732!3d27.48358015711881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sDibrugarh%20agriculture%20markets%20!5e0!3m2!1sen!2sin!4v1716002870173!5m2!1sen!2sin " },
+                { district: "Jorhat ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d28502.73422683175!2d94.19506324369286!3d26.74942473478399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sJorhat%20agriculture%20markets%20and%20godowns!5e0!3m2!1sen!2sin!4v1716002923536!5m2!1sen!2sin" },
+                { district: " Tinsukia", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14157.171016358672!2d95.33737275748095!3d27.491269455718346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sTinsukia%20agriculture%20markets%20and%20godowns!5e0!3m2!1sen!2sin!4v1716002960036!5m2!1sen!2sin " },
+                { district: "Bongaigaon ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14287.215184123643!2d90.54998100127905!3d26.46205270179133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBongaigaon%20godowns!5e0!3m2!1sen!2sin!4v1716003018686!5m2!1sen!2sin " },
+                { district: "Barpeta ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d457189.87167170603!2d90.2306283381107!3d26.462308054121383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBarpeta%20godowns!5e0!3m2!1sen!2sin!4v1716003053768!5m2!1sen!2sin" },
+            ],
+            "Bihar": [
+                { district: "Patna ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d57560.812726216085!2d85.1180466963298!3d25.619838968617618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1spatna%20vegetable%20markets!5e0!3m2!1sen!2sin!4v1716003110472!5m2!1sen!2sin " },
+                { district: "Bhagalpur", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1841998.0028902292!2d83.83983928888837!3d25.616466021219217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBhagalpur%20vegetable%20markets!5e0!3m2!1sen!2sin!4v1716003139184!5m2!1sen!2sin" },
+                { district: "Gaya ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d115978.1605888986!2d84.96713406420179!3d24.71597723763299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sGaya%20vegetable%20markets!5e0!3m2!1sen!2sin!4v1716003167437!5m2!1sen!2sin" },
+                { district: " Muzaffarpur", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d57297.98730001533!2d85.33731850020007!3d26.160084078816688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMuzaffarpur%20vegetable%20markets%20and%20godowns!5e0!3m2!1sen!2sin!4v1716003214322!5m2!1sen!2sin " },
+                { district: " Darbhanga", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d57302.59508153555!2d85.86197840013209!3d26.150702136495145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sDarbhanga%20vegetable%20markets%20and%20godowns!5e0!3m2!1sen!2sin!4v1716003245381!5m2!1sen!2sin" },
+                { district: "Purnia ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d57483.50581503862!2d87.46061049746692!3d25.779839738865036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sPurnia%20vegetable%20markets%20and%20godowns!5e0!3m2!1sen!2sin!4v1716003275433!5m2!1sen!2sin" },
+                { district: "Chapra ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d114876.32485845489!2d84.56291689720489!3d25.87325709628195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sChapra%20vegetable%20markets%20and%20godowns!5e0!3m2!1sen!2sin!4v1716003303248!5m2!1sen!2sin" },
+                { district: "Ara ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d459503.83392021904!2d84.31566535251709!3d25.873633869263493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAra%20vegetable%20markets%20and%20godowns!5e0!3m2!1sen!2sin!4v1716003335315!5m2!1sen!2sin2 " }
+            ],
+            "West Bengal": [
+                { district: "Kolkata", url: "//www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d43585.88048029229!2d88.42286192926518!3d26.71707704294806!3m2!1i1024!2i768!4f13.1!2m1!1sColdStorage%2C%20vegitable%20markets%20%20in%20Siliguri%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1715939098516!5m2!1sen!2sin" },
+                { district: "Siliguri", url: "https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d521110.14813437394!2d87.19587518825394!3d23.42337539692417!3m2!1i1024!2i768!4f13.1!2m1!1sCold%20Storage%2C%20vegetable%20markets%20in%20Asansol!5e0!3m2!1sen!2sin!4v1715939843088!5m2!1sen!2sin " },
+                { district: "Asansol", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d468762.73837185797!2d87.4623249764127!3d23.38065912718674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1smarkets%20%2C%20Cold%20Storage%20in%20Durgapur!5e0!3m2!1sen!2sin!4v1715940033934!5m2!1sen!2sin " },
+                { district: " Durgapur", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d312834.56200104055!2d87.85325817924223!3d23.280872992381358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sVegetable%20markets%20%2C%20Cold%20Storage%20in%20Bardhaman!5e0!3m2!1sen!2sin!4v1715940150891!5m2!1sen!2sin" },
+                { district: " Bardhaman", url: " https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d942006.3254559309!2d87.7831755!3d22.7389358!3m2!1i1024!2i768!4f13.1!2m1!1smarkets%20%2C%20Cold%20Storage%20in%20Howrah!5e0!3m2!1sen!2sin!4v1715940372819!5m2!1sen!2sin" },
+                { district: "Howrah", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d943987.651047053!2d87.26555075779433!3d22.4496516216704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1smarkets%20%2C%20Cold%20Storage%20in%20Kharagpur!5e0!3m2!1sen!2sin!4v1715940671057!5m2!1sen!2sin" },
+                { district: "Kharagpur", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d943987.651047053!2d87.26555075779433!3d22.4496516216704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1smarkets%20%2C%20Cold%20Storage%20in%20Kharagpur!5e0!3m2!1sen!2sin!4v1715940671057!5m2!1sen!2sin " },
+                { district: "Habra", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d941431.8868631417!2d87.91647533120083!3d22.822157190510477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1smarkets%20%2C%20Cold%20Storage%20in%20Habra!5e0!3m2!1sen!2sin!4v1715940725034!5m2!1sen!2sin " }
+            ],
+            "Uttarakhand": [
+                { district: " Dehradun", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d69873.82225846166!2d78.00263130368207!3d30.3217122605948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20godown%20and%20vegetable%20markets%20in%20Dehradun!5e0!3m2!1sen!2sin!4v1715941243551!5m2!1sen!2sin" },
+                { district: "Haridwar ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d89662.73514476222!2d78.0963708497321!3d29.947534518141556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20warehouse%20and%20vegetable%20%20markets%20in%20Haridwar!5e0!3m2!1sen!2sin!4v1715941669487!5m2!1sen!2sin" },
+                { district: "Haldwani ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d38742.08924251939!2d79.49606656884158!3d29.220998281198657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20godown%20and%20vegetable%20%20markets%20in%20Haldwani!5e0!3m2!1sen!2sin!4v1715941962448!5m2!1sen!2sin" },
+                { district: "Roorkee ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d42106.79645353988!2d77.87563991536406!3d29.85853643945616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sgodowns%20and%20vegetable%20markets%20in%20Roorkee!5e0!3m2!1sen!2sin!4v1715942452137!5m2!1sen!2sin" },
+                { district: "Rudrapur ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d29864.764195184773!2d79.3963407877155!3d28.98628069664506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sgodown%20and%20vegetable%20markets%20in%20Rudrapur!5e0!3m2!1sen!2sin!4v1715942543700!5m2!1sen!2sin" },
+                { district: " Kashipur", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d37789.792972847885!2d78.95179986464309!3d29.212394627546864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sgodown%20and%20vegetables%20market%20in%20Kashipur!5e0!3m2!1sen!2sin!4v1715942926640!5m2!1sen!2sin" },
+                { district: "Rishikesh ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d55232.535180502004!2d78.25029367559428!3d30.09322836879336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1swarehouse%20and%20vegetables%20market%20in%20Rishikesh!5e0!3m2!1sen!2sin!4v1715943357728!5m2!1sen!2sin" },
+                { district: " Nainital", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d10906.387760438343!2d79.45109030031378!3d29.39182517852076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1swarehouse%20and%20vegetables%20market%20in%20Nainital!5e0!3m2!1sen!2sin!4v1715943672906!5m2!1sen!2sin " }
+            ],
+            "Uttar Pradesh": [
+                { district: " Kanpur", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d114316.83870843328!2d80.27434680281898!3d26.442793368607546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scold%20storage%20and%20vegetables%20market%20in%20Kanpur!5e0!3m2!1sen!2sin!4v1715943813474!5m2!1sen!2sin " },
+                { district: " Lucknow", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d113904.87165811785!2d80.9025164550666!3d26.854985134172104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scold%20storage%20and%20vegetables%20mandi%20in%20Lucknow!5e0!3m2!1sen!2sin!4v1715944058185!5m2!1sen!2sin" },
+                { district: "Varanasi ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d149864.22617011386!2d82.92624907698846!3d25.372481186322275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scold%20storage%20and%20vegetables%20mandi%20in%20varanasi!5e0!3m2!1sen!2sin!4v1715944197324!5m2!1sen!2sin " },
+                { district: " Agra", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d113541.34507316879!2d77.94121719183197!3d27.213905101311948!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scold%20storage%20and%20vegetable%20mandi%20in%20%20Agra!5e0!3m2!1sen!2sin!4v1715944736279!5m2!1sen!2sin" },
+                { district: " Meerut", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d111696.11830985828!2d77.64660358428945!3d28.972441601425654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scold%20storage%20and%20vegetable%20mandi%20in%20Meerut!5e0!3m2!1sen!2sin!4v1715944966883!5m2!1sen!2sin" },
+                { district: " Allahabad", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d92583.71188629747!2d81.81740239633379!3d25.471208174432725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scold%20storage%20and%20vegetable%20mandi%20in%20Prayagraj!5e0!3m2!1sen!2sin!4v1715945036362!5m2!1sen!2sin" },
+                { district: " Bareilly", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d95969.349061564!2d79.43149971420975!3d28.38362418745797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1scold%20storage%20and%20vegetable%20mandi%20in%20Bareilly!5e0!3m2!1sen!2sin!4v1715945204515!5m2!1sen!2sin " },
+                { district: " Aligarh", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d72660.69396039641!2d78.05950575078235!3d27.91341673040402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sgodown%20and%20vegetable%20markets%20in%20Aligarh!5e0!3m2!1sen!2sin!4v1715945511417!5m2!1sen!2sin " }
+            ],
+
+            "Chhattisgarh": [
+                { district: " Raipur", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d237913.57998565567!2d81.57558775683218!3d21.29521760450425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sRaipur%20vegetable%20markets%20and%20godowns!5e0!3m2!1sen!2sin!4v1716004599836!5m2!1sen!2sin " },
+                { district: "Bilaspur ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d951652.7946304496!2d81.08095366101831!3d21.295453202659786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBilaspur%20vegetable%20markets%20and%20godowns!5e0!3m2!1sen!2sin!4v1716004674746!5m2!1sen!2sin" },
+                { district: "Durg ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d951652.8476170208!2d81.08094143403262!3d21.29544501844974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sDurg%20vegetable%20markets%20and%20godowns!5e0!3m2!1sen!2sin!4v1716004717312!5m2!1sen!2sin" },
+                { district: " Bhilai", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d119041.61733706585!2d81.2796254238283!3d21.190151092510074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBhilai%20vegetable%20markets%20and%20godowns!5e0!3m2!1sen!2sin!4v1716004756131!5m2!1sen!2sin " },
+                { district: "Korba ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d59035.86063673782!2d82.72126117486823!3d22.363395415158667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKorba%20vegetable%20markets%20and%20godowns!5e0!3m2!1sen!2sin!4v1716004795406!5m2!1sen!2sin " },
+                { district: " Rajnandgaon", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1889184.5646438892!2d81.44301742717742!3d22.360665936109143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sRajnandgaon%20vegetable%20markets%20and%20godowns!5e0!3m2!1sen!2sin!4v1716004833976!5m2!1sen!2sin" },
+                { district: "Raigarh ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d944572.7006128664!2d82.10301857730025!3d22.36355310651849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sRaigarh%20vegetable%20markets%20and%20godowns!5e0!3m2!1sen!2sin!4v1716004872757!5m2!1sen!2sin" },
+                { district: "Ambikapur ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d117463.28365952749!2d83.10412642010391!3d23.07044567783565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAmbikapur%20vegetable%20markets%20and%20godowns!5e0!3m2!1sen!2sin!4v1716004909303!5m2!1sen!2sin" },
+            ],
+            "Goa": [
+                { district: " Margao", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15395.246928111657!2d73.95884424388238!3d15.278059498956576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMargao%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716005209528!5m2!1sen!2sin " },
+                { district: " Mapusa", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15371.767373731924!2d73.8030027501352!3d15.594755784513932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMapusa%20agriculture%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716005259589!5m2!1sen!2sin" },
+                { district: "Panaji ", url: " https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3844.7004586423927!2d73.82316507533591!3d15.500536154410733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfc08e645c34e5%3A0x249af6170eab5bac!2sFarm%20Products!5e0!3m2!1sen!2sin!4v1716005298393!5m2!1sen!2sin" },
+                { district: " Vasco da Gama", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1923.3050258758587!2d73.8079786886701!3d15.397590932234555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sVasco%20da%20Gama%20vegetables%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716005348342!5m2!1sen!2sin" },
+                { district: "Ponda ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3846.5320823316315!2d74.00604397514171!3d15.401807370877348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sPonda%20Vegetable%20Market%20and%20godowns!5e0!3m2!1sen!2sin!4v1716005431271!5m2!1sen!2sin " },
+                { district: "Canacona ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d123088.93461293273!2d73.92621730916025!3d15.401962860534633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sCanacona%20Vegetable%20Market%20and%20godowns!5e0!3m2!1sen!2sin!4v1716005507686!5m2!1sen!2sin" },
+                { district: " Bicholim", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d246128.93421279287!2d73.7785773712839!3d15.443251569865032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBicholim%20Vegetable%20Market%20and%20godowns!5e0!3m2!1sen!2sin!4v1716005534435!5m2!1sen!2sin" },
+                { district: " Quepem", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d246128.29308438083!2d73.77857658165577!3d15.443791804434372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sQuepem%20Vegetable%20Market%20and%20godowns!5e0!3m2!1sen!2sin!4v1716005571820!5m2!1sen!2sin " },
+            ],
+            "Gujarat": [
+                { district: " Ahmedabad", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d117507.76423703734!2d72.46872756879081!3d23.019452724219526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAhmedabad%20Vegetable%20Market%20!5e0!3m2!1sen!2sin!4v1716005954933!5m2!1sen!2sin " },
+                { district: "Surat ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d119038.32559422891!2d72.76687917392405!3d21.194237484962347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sSurat%20Vegetable%20Market%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716005990127!5m2!1sen!2sin" },
+                { district: " Rajkot", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d236311.92541917512!2d70.67246715448083!3d22.263824546947607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sRajkot%20Vegetable%20Market%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716006024325!5m2!1sen!2sin " },
+                { district: "Vadodara ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d118140.73292795024!2d73.15409545015883!3d22.281856961857326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sVadodara%20Vegetable%20Market%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716006054137!5m2!1sen!2sin " },
+                { district: " Bhavnagar", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d945125.337237831!2d72.57705431541864!3d22.281934808839978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBhavnagar%20Vegetable%20Market%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716006085437!5m2!1sen!2sin " },
+                { district: "Jamnagar ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d471911.9575934467!2d70.19286172563827!3d22.473691692667554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sJamnagar%20Vegetable%20Market%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716006109704!5m2!1sen!2sin " },
+                { district: " Junagadh", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d474086.03372105595!2d70.2967646881913!3d21.82676757967433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sJunagadh%20Vegetable%20Market%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716006140371!5m2!1sen!2sin" },
+                { district: "Gandhinagar ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d117339.95201697973!2d72.66338422374719!3d23.211280261340566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sGandhinagar%20Vegetable%20Market%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716006169440!5m2!1sen!2sin" },
+            ],
+            "Haryana": [
+                { district: "Hisar ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d27877.24029189153!2d75.75085789830322!3d29.145363656970215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sHisar%20%2C%20haryana%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716010483669!5m2!1sen!2sin " },
+                { district: " Karnal", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d55450.31334119871!2d76.99227407770891!3d29.701082431040057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKarnal%20%2C%20haryana%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716010522384!5m2!1sen!2sin" },
+                { district: "Sirsa ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d13884.676163247641!2d75.01683010848305!3d29.540571121323087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sSirsa%20%2C%20haryana%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716010625800!5m2!1sen!2sin " },
+                { district: "Rohtak ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d27946.062009777655!2d76.57805124779327!3d28.890687808218456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sRohtak%20%2C%20haryana%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716010763757!5m2!1sen!2sin" },
+                { district: "Panipat ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d55626.34286187339!2d76.95594735282683!3d29.380640161184218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sPanipat%20%2C%20haryana%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716043059771!5m2!1sen!2sin" },
+                { district: " Ambala", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d883503.7292195844!2d76.25379709807957!3d30.117478050422438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAmbala%20%2C%20haryana%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716010877634!5m2!1sen!2sin " },
+                { district: " Yamunanagar", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d883520.141942024!2d76.25376951730603!3d30.115643145934516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sYamunanagar%20%2C%20haryana%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716010943202!5m2!1sen!2sin" },
+                { district: "Kurukshetra ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d221462.79554409202!2d76.69947710654257!3d29.85400020476382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKurukshetra%20%2C%20haryana%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716010974799!5m2!1sen!2sin" },
+            ],
+            "Himachal Pradesh": [
+                { district: " Shimla", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1771772.9928461092!2d75.54483688830544!3d29.850020432546458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sShimla%20%2C%20Himachal%20Pradesh%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716011064184!5m2!1sen!2sin " },
+                { district: "Solan ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d437703.98002811684!2d77.06348230901503!3d31.010578518513693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sSolan%20%2C%20Himachal%20Pradesh%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716011113303!5m2!1sen!2sin " },
+                { district: " Mandi", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d436949.3586582605!2d76.8012421734375!3d31.17451819999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMandi%20%2C%20Himachal%20Pradesh%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716011148550!5m2!1sen!2sin " },
+                { district: "Kangra ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1747875.1149589573!2d75.81146327074187!3d31.170308960457508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKangra%20%2C%20Himachal%20Pradesh%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716011235752!5m2!1sen!2sin" },
+                { district: "Una ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d27228.418461728925!2d76.24181767967943!3d31.45398976140273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sUna%20%2C%20Himachal%20Pradesh%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716011260667!5m2!1sen!2sin " },
+                { district: "Hamirpur ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d435653.7713106655!2d75.93276180541193!3d31.454188439958543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sHamirpur%20%2C%20Himachal%20Pradesh%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716011285982!5m2!1sen!2sin" },
+                { district: "Bilaspur ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d435652.2483831767!2d75.93275840863845!3d31.45451587020876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBilaspur%20%2C%20Himachal%20Pradesh%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716011314000!5m2!1sen!2sin" },
+                { district: " Kullu", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d435650.7254834693!2d75.93275501187689!3d31.45484329142725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKullu%20%2C%20Himachal%20Pradesh%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716011340134!5m2!1sen!2sin " },
+            ],
+            "Jharkhand": [
+                { district: "Ranchi ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d56908.26995707367!2d85.30487166034061!3d23.36701604379171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sranchi%20%2C%20Jharkhand%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716040932252!5m2!1sen!2sin" },
+                { district: "Jamshedpur ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d58844.511372341185!2d86.15838732621964!3d22.810541776548988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sJamshedpur%20%2C%20jharkand%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716011496402!5m2!1sen!2sin " },
+                { district: " Dhanbad", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d106677.72039264542!2d86.38553529437588!3d23.79573146187165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sDhanbad%20%2C%20Jharkhand%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716041253904!5m2!1sen!2sin" },
+                { district: " Bokaro", url: "https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d116933.99179053088!2d86.1270961!3d23.669261!3m2!1i1024!2i768!4f13.1!2m1!1sBokaro%20%2C%20Jharkhand%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716041394729!5m2!1sen!2sin" },
+                { district: "Hazaribagh ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1883093.6545967446!2d84.8800669206621!3d22.80552828423482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sHazaribagh%20%2C%20jharkand%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716011611341!5m2!1sen!2sin" },
+                { district: " Deoghar", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d29046.881695393837!2d86.68421232073071!3d24.49029985302642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sDeoghar%20%2C%20jharkand%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716011637907!5m2!1sen!2sin " },
+                { district: "Giridih ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d232658.47808292386!2d86.35328800851427!3d24.33643339635227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sGiridih%20%2C%20jharkand%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716011665388!5m2!1sen!2sin" },
+                { district: "Ramgarh ", url: " https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d26885.29140150378!2d85.51144407394789!3d23.640581846294264!3m2!1i1024!2i768!4f13.1!2m1!1sRamgarh%20%2C%20Jharkhand%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716041682171!5m2!1sen!2sin" },
+            ],
+            "Karnataka": [
+                { district: "Bangalore ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d156494.69908772036!2d77.59211434574591!3d12.914311675146378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBangalore%20%2C%20Bangalore%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716042056222!5m2!1sen!2sin" },
+                { district: "Mysore ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d59570.72213468691!2d76.62709980626546!3d12.300461128518558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMysore%20%2C%20karnataka%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716042179456!5m2!1sen!2sin" },
+                { district: "Hubli ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1983544.6158281509!2d74.53274830350234!3d13.832398056248781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sHubli%20karnataka%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012070530!5m2!1sen!2sin " },
+                { district: "Belgaum ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d491884.6732895465!2d74.48466502118275!3d15.599714005003685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBelgaum%20karnataka%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012096569!5m2!1sen!2sin " },
+                { district: " Mangalore", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3935384.451978393!2d72.17227903003229!3d15.583692500316078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMangalore%20karnataka%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012132073!5m2!1sen!2sin" },
+                { district: "Gulbarga ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d973815.4478893749!2d76.28540355229163!3d17.556777130353474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sGulbarga%20karnataka%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012153369!5m2!1sen!2sin " },
+                { district: "Davangere ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15453.53238871458!2d75.9130385971598!3d14.462677826117622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sDavangere%20karnataka%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012181202!5m2!1sen!2sin" },
+                { district: "Bellary ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d987469.92076589!2d75.771992854426!3d14.80816564732812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBellary%20karnataka%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012210837!5m2!1sen!2sin " },
+            ],
+            "Kerala": [
+                { district: " Ernakulam", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d125753.4548548378!2d76.30029634415847!3d9.950968864490022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sErnakulam%20kerala%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012285295!5m2!1sen!2sin " },
+                { district: " Kozhikode", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2012071.273483426!2d75.06306078677336!3d9.948372267403588!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKozhikode%20kerala%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012309237!5m2!1sen!2sin" },
+                { district: " Thiruvananthapuram", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2012103.1150873154!2d75.06299765162119!3d9.943201425982405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sThiruvananthapuram%20kerala%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012332151!5m2!1sen!2sin" },
+                { district: "Thrissur ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d502472.6682166344!2d75.84189201082759!3d10.29637146058766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sThrissur%20kerala%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012376938!5m2!1sen!2sin " },
+                { district: " Malappuram", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d250697.2300017958!2d75.84265325608375!3d10.952476682768886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMalappuram%20kerala%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012400453!5m2!1sen!2sin " },
+                { district: " Kannur", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d4939.778243508051!2d75.36442007985104!3d11.873092524709106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKannur%20%2C%20kerala%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716043518795!5m2!1sen!2sin" },
+                { district: "Kollam ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d4011311.3377586002!2d73.36522869307271!3d10.940981288229148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKollam%20kerala%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012445070!5m2!1sen!2sin " },
+                { district: "Palakkad ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d501743.9616011616!2d76.15391773213365!3d10.744139143098256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sPalakkad%20kerala%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012466403!5m2!1sen!2sin" },
+            ],
+            "Madhya Pradesh": [
+                { district: "Indore ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d58903.11054672894!2d75.78699304755393!3d22.674494481075612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sindore%20madhya%20pradesh%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012705355!5m2!1sen!2sin " },
+                { district: " Bhopal", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d117320.69605455888!2d77.37383876129762!3d23.233196171163314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBhopal%20madhya%20pradesh%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012730441!5m2!1sen!2sin" },
+                { district: "Jabalpur ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d58685.73279131198!2d79.87165690156975!3d23.175371290880715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sJabalpur%20madhya%20pradesh%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012757256!5m2!1sen!2sin " },
+                { district: " Gwalior", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d57262.027008624085!2d78.136461527865!3d26.23319597675471!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sGwalior%20madhya%20pradesh%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012786939!5m2!1sen!2sin " },
+                { district: " Ujjain", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d234755.07356439557!2d75.72308034586565!3d23.168447260205582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sUjjain%20madhya%20pradesh%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012811170!5m2!1sen!2sin " },
+                { district: " Sagar", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3756332.4855114254!2d73.01144541808252!3d23.15948779041359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sSagar%20madhya%20pradesh%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012841646!5m2!1sen!2sin " },
+                { district: "Dewas ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d470663.07927607425!2d75.95031028522976!3d22.837443220494226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sDewas%20madhya%20pradesh%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012871445!5m2!1sen!2sin " },
+                { district: " Satna", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14513.392325661496!2d80.83301035144764!3d24.57718069984137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sSatna%20madhya%20pradesh%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716012901462!5m2!1sen!2sin " },
+            ],
+            "Maharashtra": [
+                { district: "Mumbai ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d120647.40614922109!2d72.84522138627614!3d19.097500030273622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1smumbai%20maharashtra%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716013049690!5m2!1sen!2sin " },
+                { district: " Pune", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d242047.7931104184!2d73.79816637240337!3d18.574184476344755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1spune%20%2C%20Maharashtra%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716043938024!5m2!1sen!2sin" },
+                { district: " Nagpur", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d59541.178920948594!2d79.04384386249866!3d21.139513167294087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sNagpur%20maharastra%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716013151118!5m2!1sen!2sin" },
+                { district: "Nashik ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d479518.46403648844!2d73.55610817618764!3d20.12411607168765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sNashik%20maharastra%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716013179785!5m2!1sen!2sin" },
+                { district: "Aurangabad ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3836638.306465696!2d71.24222821704615!3d20.10410957081281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAurangabad%20maharastra%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716013277170!5m2!1sen!2sin " },
+                { district: "Kolhapur ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d489023.018892961!2d74.0675715094957!3d16.752163597531258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKolhapur%20maharastra%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716013300801!5m2!1sen!2sin" },
+                { district: "Solapur ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3912535.3265072284!2d71.75346976793298!3d16.735068717571295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sSolapur%20maharastra%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716013329668!5m2!1sen!2sin " },
+                { district: "Amravati ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d119259.0397289866!2d77.67658869267498!3d20.91855513736726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAmravati%20maharastra%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716013360901!5m2!1sen!2sin " },
+            ],
+            "Manipur": [
+                { district: "Imphal ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d57970.39637910287!2d93.8432732902179!3d24.756053410610527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1simphal%20manipur%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716030678364!5m2!1sen!2sin " },
+                { district: " Thoubal", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d231881.76426668098!2d93.71965490412684!3d24.755957630283095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sThoubal%20manipur%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716030706185!5m2!1sen!2sin " },
+                { district: "Kakching ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d231882.1007355221!2d93.71965318587344!3d24.755777338168055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKakching%20manipur%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716030744484!5m2!1sen!2sin " },
+                { district: "Bishnupur", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d231949.96823484005!2d93.6902226154987!3d24.719386300956607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBishnupur%20manipur%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716030769818!5m2!1sen!2sin ", url: " " },
+                { district: "Churachandpur ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d231950.30387144137!2d93.69022089673967!3d24.719206205464065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sChurachandpur%20manipur%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716030793637!5m2!1sen!2sin " },
+                { district: "Senapati ", url: "https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d231950.97512537628!2d93.69021835082354!3d24.718846021128712!3m2!1i1024!2i768!4f13.1!2m1!1sSenapati%20manipur%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716030828366!5m2!1sen!2sin " },
+                { district: " Ukhrul", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d231951.31074968513!2d93.69021663205709!3d24.71866592854315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sUkhrul%20manipur%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716030866219!5m2!1sen!2sin " },
+                { district: "Tamenglong ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d231951.6463698965!2d93.69021491328814!3d24.718485836926583!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sTamenglong%20manipur%20vegetable%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716030894986!5m2!1sen!2sin " },
+            ],
+            "Meghalaya": [
+                { district: "Shillong ", url: "https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d115156.1897509701!2d91.85829208028122!3d25.58394285490101!3m2!1i1024!2i768!4f13.1!2m1!1sshillong%20%2C%20meghalaya%20vegetable%20markets%20!5e0!3m2!1sen!2sin!4v1716044650453!5m2!1sen!2sin" },
+                { district: " Tura", url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.77114094483!2d90.21429827365776!3d25.51267807750918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3757f184ee3d5471%3A0xe8787f390f50dc37!2sTura%20Super%20Market!5e0!3m2!1sen!2sin!4v1716031178339!5m2!1sen!2sin " },
+                { district: "Jowai ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14411.085422861466!2d92.19225112630525!3d25.445906590821764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sJowai%20%2C%20Meghalaya%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716031255381!5m2!1sen!2sin" },
+                { district: "Nongpoh ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14411.085508832804!2d92.19225111963458!3d25.44590587246575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sNongpoh%2C%20Meghalaya%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716031284877!5m2!1sen!2sin " },
+                { district: "Williamnagar ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1843183.6980280422!2d89.9289857089214!3d25.5394374814541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sWilliamnagar%2C%20Meghalaya%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716031312006!5m2!1sen!2sin " },
+                { district: "Baghmara ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1843365.4445113966!2d89.92887590127089!3d25.52761118214783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBaghmara%2C%20Meghalaya%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716031339771!5m2!1sen!2sin " },
+                { district: "Resubelpara ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1843547.0519370663!2d89.92876608281438!3d25.51578882361766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sResubelpara%2C%20Meghalaya%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716031371038!5m2!1sen!2sin " },
+                { district: "Mawlai ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d115147.11596638568!2d91.85691949487804!3d25.593370811089947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMawlai%20%2C%20meghalaya%20vegetable%20markets%20!5e0!3m2!1sen!2sin!4v1716044569268!5m2!1sen!2sin" },
+            ],
+            "Mizoram": [
+                { district: "Aizawl ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d466980.1599515152!2d92.37086506263265!3d23.87959923916684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAizawl%2C%20Mizoram%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716031452971!5m2!1sen!2sin " },
+                { district: "Lunglei ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d466982.6936213987!2d92.37085813780828!3d23.87889704392853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sLunglei%2C%20Mizoram%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716031485809!5m2!1sen!2sin " },
+                { district: " Champhai", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1868017.0537361088!2d91.38060344001096!3d23.87291827976447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sChamphai%2C%20Mizoram%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716031518206!5m2!1sen!2sin " },
+                { district: "Serchhip ", url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3664.6632411634578!2d92.85965507355674!3d23.29168307898602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374d09a56f452367%3A0xf1ec8007e0074b42!2sCold%20Storage%20Serchhip!5e0!3m2!1sen!2sin!4v1716031540256!5m2!1sen!2sin " },
+                { district: "Kolasib ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d232981.5979391536!2d92.47146130613369!3d24.159894823197387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKolasib%2C%20Mizoram%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716031568138!5m2!1sen!2sin " },
+                { district: "Saiha ", url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3649.9711004267606!2d92.65504277357999!3d23.819626678623177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374deded3ca1eeb3%3A0x45e9cba0d62f2ea9!2sSairang%20Horticulture%20Cold%20Storage!5e0!3m2!1sen!2sin!4v1716031591691!5m2!1sen!2sin " },
+                { district: "Lawngtlai ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1878106.1624449077!2d91.44031780129603!3d23.163772079278584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sLawngtlai%20mizoram%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716031641088!5m2!1sen!2sin" },
+                { district: "Mamit ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d233468.279208073!2d92.54089070453189!3d23.89168016495614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMamit%20mizoram%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716031661705!5m2!1sen!2sin" },
+            ],
+            "Odisha": [
+                { district: " Bhubaneswar", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d67822.44650989611!2d85.8097866677081!3d20.30090077261511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBhubaneswar%20%2C%20odisha%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716021180304!5m2!1sen!2sin " },
+                { district: " Cuttack", url: "https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d119619.22120877137!2d85.86241645740604!3d20.4610583150868!3m2!1i1024!2i768!4f13.1!2m1!1sCuttack%20%2C%20odisha%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716021272591!5m2!1sen!2sin " },
+                { district: "Berhampur ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d47714.70296802646!2d84.78643877371557!3d19.30664260162059!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBerhampur%20%2C%20odisha%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716021335995!5m2!1sen!2sin " },
+                { district: " Rourkela", url: "https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d118188.7811915699!2d84.820164!3d22.2249195!3m2!1i1024!2i768!4f13.1!2m1!1sRourkela%20%2C%20odisha%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716021397685!5m2!1sen!2sin " },
+                { district: " Sambalpur", url: "https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d118790.40509298333!2d83.9999704!3d21.4998785!3m2!1i1024!2i768!4f13.1!2m1!1sSambalpur%20%2C%20odisha%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716021680424!5m2!1sen!2sin " },
+                { district: " Balasore", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d108735.22262256236!2d86.89367804730698!3d21.4920037685355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBalasore%20%2C%20odisha%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716021780032!5m2!1sen!2sin " },
+                { district: " Puri", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d30030.319366058273!2d85.8213540400834!3d19.8065025934404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sPuri%20%2C%20odisha%20vegitable%20markets%20and%20warehouse!5e0!3m2!1sen!2sin!4v1716022312376!5m2!1sen!2sin " },
+                { district: " Bhadrak", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d77652.0223041459!2d86.497236464292!3d21.035438267409464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBhadrak%20%2C%20odisha%20vegetable%20markets%20and%20warehouse!5e0!3m2!1sen!2sin!4v1716022416191!5m2!1sen!2sin " },
+            ],
+            "Punjab": [
+                { district: "Amritsar ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d54356.1466101469!2d74.90210994580819!3d31.6267537856793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAmritsar%20%2C%20Punjab%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716020473185!5m2!1sen!2sin " },
+                { district: " Ludhiana", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d56446.33151521004!2d75.8145334201546!3d30.910326399912208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sLudhiana%20%2C%20Punjab%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716020531688!5m2!1sen!2sin" },
+                { district: " Jalandhar", url: " https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d178957.12348756363!2d75.55382146910618!3d31.34524390976574!3m2!1i1024!2i768!4f13.1!2m1!1sJalandhar%20%2C%20Punjab%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716020629075!5m2!1sen!2sin" },
+                { district: "Patiala ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d72432.53065678962!2d76.3922703632751!3d30.34639549437625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sPatiala%20%2C%20Punjab%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716020705476!5m2!1sen!2sin " },
+                { district: " Bathinda", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d70552.69490919818!2d74.93403645343408!3d30.205906817230066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBathinda%20%2C%20Punjab%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716020819165!5m2!1sen!2sin " },
+                { district: "Mohali ", url: "https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d157575.03194288895!2d76.74675718089468!3d30.669013077440596!3m2!1i1024!2i768!4f13.1!2m1!1sMohali%20%2C%20Punjab%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716020896991!5m2!1sen!2sin " },
+                { district: " Pathankot", url: "https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d18992.476957750092!2d75.64437280254512!3d32.26457969131042!3m2!1i1024!2i768!4f13.1!2m1!1sPathankot%20%2C%20Punjab%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716020960678!5m2!1sen!2sin " },
+                { district: "Hoshiarpur ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d13605.330413018677!2d75.89404621108395!3d31.515023684180452!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sHoshiarpur%20%2C%2C%20Punjab%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716021076395!5m2!1sen!2sin" },
+            ],
+            "Rajasthan": [
+                { district: "Jaipur ", url: " https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d113834.0741510716!2d75.7756661!3d26.9252324!3m2!1i1024!2i768!4f13.1!2m1!1sJaipur%20%2C%20Rajasthan%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716019595266!5m2!1sen!2sin" },
+                { district: "Jodhpur ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d70110.40638741528!2d73.00624213613058!3d26.27718383145633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sJodhpur%20%2C%20Rajasthan%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716019685828!5m2!1sen!2sin" },
+                { district: "Kota ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d115562.62888019418!2d75.82850313669634!3d25.15826011902598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKota%20%2C%20Rajasthan%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716019766380!5m2!1sen!2sin " },
+                { district: "Udaipur ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d69310.83531273801!2d73.66702488881958!3d24.591645899338005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sUdaipur%20%2C%20Rajasthan%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716019816986!5m2!1sen!2sin" },
+                { district: "Bikaner ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d61972.277526193146!2d73.3102887793424!3d28.020044574181448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBikaner%20%2C%20Rajasthan%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716019915957!5m2!1sen!2sin " },
+                { district: "Ajmer ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d85199.09818151483!2d74.62897407062691!3d26.47794156909279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAjmer%20%2C%20Rajasthan%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716019992653!5m2!1sen!2sin " },
+                { district: "Alwar ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d40787.38426215052!2d76.60512366829504!3d27.558661614614472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAlwar%20%2C%20Rajasthan%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716020137541!5m2!1sen!2sin " },
+                { district: "Sikar ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d56565.77064302599!2d75.1356134910156!3d27.613344401568902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sSikar%20%2C%20Rajasthan%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716020274240!5m2!1sen!2sin " },
+            ],
+            "Sikkim": [
+                { district: "Gangtok ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d316777.21373401175!2d88.4203491635792!3d27.302935185732164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20Gangtok%2C%20Sikkim%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716018248740!5m2!1sen!2sin" },
+                { district: " Namchi", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d152729.622240437!2d88.27671021785306!3d27.135357536515002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20Namchi%2C%20Sikkim%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716018330288!5m2!1sen!2sin" },
+                { district: " Mangan", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d163984.2378061469!2d88.51696387516729!3d27.396806293997464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMangan%2C%2C%20Sikkim%20%20cold%20storages!5e0!3m2!1sen!2sin!4v1716018492536!5m2!1sen!2sin" },
+                { district: " Gyalshing", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d226865.37419307386!2d88.25776912285919!3d27.320339841531002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sGyalshing%2C%20Sikkim%20%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716018579680!5m2!1sen!2sin " },
+                { district: "Singtam ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d138412.13339886034!2d88.5221018844118!3d26.59821541755677!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sSingtam%20cold%20storages!5e0!3m2!1sen!2sin!4v1716018704534!5m2!1sen!2sin" },
+                { district: "Rangpo ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d227011.93375515874!2d88.3769214771594!3d27.248601574037323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20vegetable%20markets%20in%20sikkim!5e0!3m2!1sen!2sin!4v1716018913702!5m2!1sen!2sin" },
+                { district: "Pakyong ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d377171.2493559321!2d88.70772822095977!3d26.59279121953679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sPakyong%20cold%20storages!5e0!3m2!1sen!2sin!4v1716018784449!5m2!1sen!2sin " },
+                { district: " Jorethang", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d905762.344310672!2d88.47896707302787!3d27.527290896446807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sall%20markets%20in%20sikkim!5e0!3m2!1sen!2sin!4v1716019405302!5m2!1sen!2sin " },
+            ],
+            "Tamil Nadu": [
+                { district: "Chennai ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d248734.56587436714!2d80.19683046761952!3d13.068890086527983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20Chennai%2C%20Tamil%20nadu%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716017062361!5m2!1sen!2sin " },
+                { district: "Coimbatore", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d165432.62332966263!2d76.9042935203417!3d10.981017952103578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20Coimbatore%2C%20Tamil%20nadu%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716017486380!5m2!1sen!2sin" },
+                { district: "Madurai", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d125745.88546759365!2d78.00969840173326!3d9.970606945373136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20Madurai%2C%20Tamil%20nadu%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716017563463!5m2!1sen!2sin" },
+                { district: "Salem", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d250140.68305542614!2d78.09548605357837!3d11.591362747684114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20Salem%2C%20Tamil%20nadu%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716017639729!5m2!1sen!2sin " },
+                { district: "Tiruchirappalli", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d204694.0145096049!2d78.656210821051!3d10.799484704682612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20Tiruchirappalli%2C%20Tamil%20nadu%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716017711405!5m2!1sen!2sin" },
+                { district: "Tiruppur", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d51459.99987490114!2d77.31738913847161!3d11.118805581122125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20Tiruppur%2C%20Tamil%20nadu%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716017807835!5m2!1sen!2sin " },
+                { district: "Erode ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d62596.157629346715!2d77.6918342555031!3d11.31570788764666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20Erode%2C%20Tamil%20nadu%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716017899320!5m2!1sen!2sin " },
+                { district: "Vellore ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d56917.32958327512!2d79.132901991344!3d12.927868153943429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20Vellore%2C%20Tamil%20nadu%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716017980020!5m2!1sen!2sin " },
+            ],
+            "Telangana": [
+                { district: "Warangal ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d60715.031578605856!2d79.58556142101477!3d17.993178526831528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sgodowns%20and%20vegetable%20markets%20%20in%20Warangal!5e0!3m2!1sen!2sin!4v1716008802102!5m2!1sen!2sin " },
+                { district: "Karimnagar", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d33844.18177525347!2d79.1100388340794!3d18.451209211020842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sgodowns%20and%20vegetable%20markets%20%20in%20Karimnagar!5e0!3m2!1sen!2sin!4v1716009074125!5m2!1sen!2sin" },
+                { district: "Nizamabad", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d30236.261914807008!2d78.09251991901311!3d18.684952531111026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20vegetable%20markets%20in%20Nizamabad!5e0!3m2!1sen!2sin!4v1716009645789!5m2!1sen!2sin" },
+                { district: "Mahbubnagar ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d23959.512128709124!2d77.98704009321109!3d16.746457998819242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20vegetable%20markets%20in%20Mahbubnagar!5e0!3m2!1sen!2sin!4v1716009774384!5m2!1sen!2sin " },
+                { district: "Khammam", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d30483.35329415965!2d80.13185485195405!3d17.246944451429545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20vegetable%20markets%20in%20khammam!5e0!3m2!1sen!2sin!4v1716009819625!5m2!1sen!2sin" },
+                { district: "Adilabad ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d18579.044095011937!2d78.52204858739877!3d19.668725630961422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1svegetable%20markets%20in%20Adilabad!5e0!3m2!1sen!2sin!4v1716010213877!5m2!1sen!2sin" },
+                { district: "Nalgonda", url: " https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d61027.69600064386!2d79.2607256285357!3d17.06134982644511!3m2!1i1024!2i768!4f13.1!2m1!1sgodowns%20%20in%20Nalgonda!5e0!3m2!1sen!2sin!4v1716010514250!5m2!1sen!2sin" },
+                { district: "Suryapet", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d30499.535354264583!2d79.61498978276417!3d17.14870101199833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20mills%20in%20Suryapet%2C%20Telangana!5e0!3m2!1sen!2sin!4v1716016823803!5m2!1sen!2sin" },
+            ],
+            "Tripura": [
+                { district: " Agartala", url: "https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d116780.08689677386!2d91.214125!3d23.8407176!3m2!1i1024!2i768!4f13.1!2m1!1svegetables%20markets%20in%20agartala!5e0!3m2!1sen!2sin!4v1716006149819!5m2!1sen!2sin " },
+                { district: " Udaipur", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d116078.35517914758!2d73.62247008656884!3d24.608218900454546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1svegetables%20markets%20%20in%20Udaipur!5e0!3m2!1sen!2sin!4v1716006373129!5m2!1sen!2sin " },
+                { district: "Dharmanagar ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d58141.43992719107!2d92.15447785217614!3d24.386868959771537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20vegetables%20markets%20Dharmanagar!5e0!3m2!1sen!2sin!4v1716006591501!5m2!1sen!2sin" },
+                { district: " Kailashahar", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d29086.689930003387!2d91.99613808316516!3d24.317346543295876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20vegetables%20markets%20%20Kailashahar!5e0!3m2!1sen!2sin!4v1716006825556!5m2!1sen!2sin" },
+                { district: " Belonia", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d29326.035661427682!2d91.46110525046484!3d23.25202060956524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1svegetables%20markets%20%20in%20Belonia!5e0!3m2!1sen!2sin!4v1716007003808!5m2!1sen!2sin" },
+                { district: " Teliamura", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d29194.02977752731!2d91.61348630470563!3d23.845122526709567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sgodowns%20in%20Teliamura!5e0!3m2!1sen!2sin!4v1716007412521!5m2!1sen!2sin" },
+                { district: "Santir ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d627097.6749602299!2d91.30596242330205!3d23.794631605328345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1smarkets%20and%20godown%20in%20Santir!5e0!3m2!1sen!2sin!4v1716007820469!5m2!1sen!2sin" },
+                { district: "Ambassa ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d29175.603968565734!2d91.84501535453708!3d23.926806988684728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s%20sabsi%20bazar%20in%20Ambassa!5e0!3m2!1sen!2sin!4v1716008112260!5m2!1sen!2sin" },
+            ],
+            "Andaman and Nicobar Islands": [
+                { district: "Blair ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d998521.3836827016!2d92.16557656682123!3d12.148088499649775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAndaman%20and%20Nicobar%20Islands%20Blair%20port%20%20nearby%20vegatable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716100767787!5m2!1sen!2sin " },
+                { district: " Mayabunder", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d998527.2412555227!2d92.16556093515216!3d12.146526977286339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAndaman%20and%20Nicobar%20Islands%20Mayabunder%20%20nearby%20vegatable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716100800132!5m2!1sen!2sin " },
+                { district: "Diglipur ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d998533.0973795743!2d92.16554530339143!3d12.144965643458715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAndaman%20and%20Nicobar%20Islands%20Diglipur%20%20nearby%20vegatable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716100828027!5m2!1sen!2sin" },
+                { district: "Rangat ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d998538.9520551877!2d92.16552967153908!3d12.143404498148788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAndaman%20and%20Nicobar%20Islands%20Rangat%20%20nearby%20vegatable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716100856965!5m2!1sen!2sin " },
+                { district: " Hut Bay", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d499574.10707469564!2d92.52102424321139!3d11.97984977814987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAndaman%20and%20Nicobar%20Islands%20Hut%20Bay%20%20nearby%20vegatable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716100892410!5m2!1sen!2sin " },
+                { district: "Ferrargunj ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d499574.81960136426!2d92.52102033666787!3d11.979464647729182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAndaman%20and%20Nicobar%20Islands%20Ferrargunj%20%20nearby%20vegatable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716100925927!5m2!1sen!2sin " },
+                { district: "Kadamtala ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d499575.5320839075!2d92.52101643011876!3d11.979079528959259!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAndaman%20and%20Nicobar%20Islands%20Kadamtala%20%20nearby%20vegatable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716100962544!5m2!1sen!2sin " },
+                { district: "Bamboo Flat ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d125032.44998863233!2d92.61176237130329!3d11.675688706619518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAndaman%20and%20Nicobar%20Islands%20Bamboo%20Flat%20%20nearby%20vegatable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716100991447!5m2!1sen!2sin" },
+            ],
+            "Chandigarh": [
+                { district: "Sector 26 ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3429.8368038656736!2d76.80684252545164!3d30.72298797458898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1schandigarh%20sector%2026%20nearby%20vegatable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716101103680!5m2!1sen!2sin " },
+                { district: "Sector 17 ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3429.8368038656736!2d76.80684252545164!3d30.72298797458898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1schandigarh%20sector%2017%20nearby%20vegatable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716101124992!5m2!1sen!2sin " },
+                { district: "Sector 22 ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d54883.58745940045!2d76.73381852176999!3d30.71209649582572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1schandigarh%20sector%2022%20nearby%20vegatable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716101144668!5m2!1sen!2sin" },
+                { district: "Sector 34 ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d54883.59486156219!2d76.73381846816588!3d30.712083487495743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1schandigarh%20sector%2034%20nearby%20vegatable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716101167060!5m2!1sen!2sin " },
+                { district: "Sector 19 ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d54883.602263719346!2d76.73381841456178!3d30.712070479168972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1schandigarh%20sector%2019%20nearby%20vegatable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716101189475!5m2!1sen!2sin " },
+                { district: "Sector 15 ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d54883.60966587184!2d76.73381836095768!3d30.712057470845437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1schandigarh%20sector%2015%20nearby%20vegatable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716101215363!5m2!1sen!2sin" },
+                { district: "Sector 35 ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d54883.61706801968!2d76.73381830735359!3d30.712044462525107!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1schandigarh%20sector%2035%20nearby%20vegatable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716101236429!5m2!1sen!2sin" },
+                { district: "Sector 18 ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d54883.62447016285!2d76.73381825374943!3d30.712031454208002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1schandigarh%20sector%2018%20nearby%20vegatable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716101259944!5m2!1sen!2sin " },
+            ],
+            "Dadra and Nagar Haveli and Daman and Diu": [
+                { district: "Daman ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d29918.29162915527!2d72.82326194813902!3d20.391692821688952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sDaman%20vegetable%20markets!5e0!3m2!1sen!2sin!4v1716101360609!5m2!1sen!2sin " },
+                { district: "Silvassa ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d239346.45513143734!2d72.67904911073998!3d20.391614193843512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sSilvassa%20vegetable%20markets!5e0!3m2!1sen!2sin!4v1716101388544!5m2!1sen!2sin " },
+                { district: " Nani Daman", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7478.283053239271!2d72.83218184170673!3d20.418256374330614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sNani%20Daman%20vegetable%20markets!5e0!3m2!1sen!2sin!4v1716101422181!5m2!1sen!2sin " },
+                { district: "Moti Daman ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d14957.446085578027!2d72.82610624942252!3d20.409198847430513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1smoti%20Daman%20vegetable%20markets!5e0!3m2!1sen!2sin!4v1716101449660!5m2!1sen!2sin " },
+                { district: "Vapi ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d59839.5144729404!2d72.8315446302521!3d20.384141013599802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sVapi%20vegetable%20markets!5e0!3m2!1sen!2sin!4v1716101486531!5m2!1sen!2sin " },
+                { district: "Khanvel ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d59851.4272356069!2d72.8947695800319!3d20.353422069617356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKhanvel%20vegetable%20markets!5e0!3m2!1sen!2sin!4v1716101511029!5m2!1sen!2sin " },
+                { district: "Bhimpore ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d29914.45940917905!2d72.84323216278385!3d20.4114263895971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBhimpore%20vegetable%20markets!5e0!3m2!1sen!2sin!4v1716101533427!5m2!1sen!2sin " },
+                { district: "Naroli ", url: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3742.7573885473257!2d72.974323275096!3d20.268894181197034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0cdbb39301741%3A0x4af1debb16adcc6e!2sNehanshi%20fruts%20and%20vegetables%20Athal%20main%20Naroli%20Road!5e0!3m2!1sen!2sin!4v1716101559494!5m2!1sen!2sin " },
+            ],
+            "Delhi": [
+                { district: "Azadpur ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d13996.573139493643!2d77.16955311053283!3d28.715263623147827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAzadpur%2CDelhi%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716102552341!5m2!1sen!2sin " },
+                { district: "Ghazipur ", url: " https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d35456.75453172619!2d77.30421154300763!3d28.638282061636122!3m2!1i1024!2i768!4f13.1!2m1!1sGhazipur%2CDelhi%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716102750914!5m2!1sen!2sin" },
+                { district: "Okhla ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d32814.933224181994!2d77.26984626041066!3d28.551260548848244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sOkhla%2CDelhi%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716102816694!5m2!1sen!2sin " },
+                { district: " Narela", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d55915.420771985446!2d77.07326316480072!3d28.847379678728593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sNarela%2Cdelhi%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716103158354!5m2!1sen!2sin " },
+                { district: "Keshopur ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d10893.042791766791!2d77.0877039567198!3d28.652930424146668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKeshopur%2Cdelhi%20vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716103230604!5m2!1sen!2sin " },
+                { district: "Khera Kalan ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d111746.30087597124!2d77.12560077246079!3d28.92591547836129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKhera%20Kalan%2Cvegetable%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716103487908!5m2!1sen!2sin" },
+                { district: "Shahdara ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d56010.159808781595!2d77.26341593925149!3d28.670646035538887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sShahdara%2Cdelhi%20vegetable%20market%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716103551168!5m2!1sen!2sin" },
+                { district: "Najafgarh ", url: " https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d56009.58166067984!2d77.13115350898434!3d28.671727580010387!3m2!1i1024!2i768!4f13.1!2m1!1sNajafgarh%2Cdelhi%20vegetable%20market%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716103693507!5m2!1sen!2sin" },
+            ],
+            "Lakshadweep": [
+                { district: "Kavaratti ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d31377.529289246944!2d72.63004630630402!3d10.564209280742825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKavaratti%20Vegetable%20market!5e0!3m2!1sen!2sin!4v1716103913464!5m2!1sen!2sin" },
+                { district: "Andrott ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d15675.908764195274!2d73.67201486680428!3d10.813057246305172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sAndrott%20markets!5e0!3m2!1sen!2sin!4v1716104007191!5m2!1sen!2sin " },
+                { district: "Minicoy ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d30411.548832473316!2d73.03629923222317!3d8.288280847216512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sMinicoy%20vegetables!5e0!3m2!1sen!2sin!4v1716104230277!5m2!1sen!2sin" },
+                { district: "Kalpeni ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1002373.8410172261!2d72.50053303487704!3d11.074358422276932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sKiltan%20%2Clakshadweep%20vegetables%20markets%20and%20cold%20storage!5e0!3m2!1sen!2sin!4v1716104443069!5m2!1sen!2sin" },   
+            ],
+            "Puducherry": [
+                { district: " Puducherry", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d31228.90138484325!2d79.81770655797395!3d11.932020935729524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sPuducherry%2CPuducherry%20Vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716104922596!5m2!1sen!2sin " },
+                { district: "Karaikal ", url: "https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d19049.9767782109!2d79.83092675955969!3d10.924926969001447!3m2!1i1024!2i768!4f13.1!2m1!1sKaraikal%2C%2CPuducherry%20Vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716105050248!5m2!1sen!2sin " },
+                { district: "Bahour ", url: "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d62461.48086477446!2d79.77402448654162!3d11.916043337670635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sBahour%2CPuducherry%20Vegetable%20markets%20and%20cold%20storages!5e0!3m2!1sen!2sin!4v1716105179529!5m2!1sen!2sin " },
+                { district: "Thirukkanur ", url: " https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d76843.6348700999!2d79.7565501015157!3d11.937106875343865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sThirukkanur%20godown!5e0!3m2!1sen!2sin!4v1716105624073!5m2!1sen!2sin" },
+            ],
+        };
+
+        function DisplayData() {
+            const selectedState = document.getElementById("states").value;
+            const linksContainer = document.getElementById("links");
+
+            linksContainer.innerHTML = '';
+
+            if (selectedState in stateData) {
+                stateData[selectedState].forEach(item => {
+                    const iframeContainer = document.createElement("div");
+                    iframeContainer.classList.add("iframe-container");
+
+                    const h2 = document.createElement("h2");
+                    h2.textContent = `District: ${item.district}`;
+
+                    const iframe = document.createElement("iframe");
+                    iframe.src = item.url;
+
+                    iframeContainer.appendChild(h2);
+                    iframeContainer.appendChild(iframe);
+                    linksContainer.appendChild(iframeContainer);
+                });
+            } else {
+                linksContainer.innerHTML = '<p> Please select a state </p>';
+            }
+        }
+    </script>
+</body>
+
+</html>
